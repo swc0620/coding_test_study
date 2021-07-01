@@ -16,10 +16,10 @@ int solution(int n, vector<int> lost, vector<int> reserve) {
     }
     
     for(int i = 0; i < n; i++){
-        if(i > 0 && students[i] == 0 && students[i-1] == 2){
+        if(students[i] == 0 && students[i-1] == 2){
             students[i-1]--; students[i]++;
         }
-        if(i < n-1 && students[i] == 0 && students[i+1] == 2){
+        if(students[i] == 0 && students[i+1] == 2){
             students[i+1]--; students[i]++;
         }
     }
