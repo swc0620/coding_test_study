@@ -31,4 +31,4 @@ def solution(new_id):
         while len(new_id) < 3:
             new_id += new_id[-1]
     
-    return new_id
+    return new_id 
