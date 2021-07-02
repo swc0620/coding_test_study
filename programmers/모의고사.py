@@ -9,6 +9,6 @@ def solution(answers):
                 right[i] += 1
     for idx, score in enumerate(right):
         if score == max(right):
-            answer.append(idx + 1)
+            answer.append(idx+1)
 
     return answer
