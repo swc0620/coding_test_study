@@ -1,6 +1,6 @@
 import re
 def solution(new_id):
-    remove_char = '~!@#$%^&*()=+[{]}:?,<>/'
+    remove_char = '~!@#$%^&*()=+[{]}:?,<>/' # 정의
     new_id = new_id.lower() # 1단계
     for char in new_id: # 2단계
         if char in remove_char:
