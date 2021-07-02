@@ -5,4 +5,4 @@ def solution(absolutes, signs):
             answer -= absolutes[i]
         else:
             answer += absolutes[i]
-    return answer
+    return answer 
