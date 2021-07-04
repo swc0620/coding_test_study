@@ -1,13 +1,44 @@
+from collections import Counter
+
 def solution(N, stages):
-    fail_rate = {}
-    total_user = len(stages)
-
-    for stage in range(1, N+1):
-        if total_user != 0:
-            fail_user = stages.count(stage)
-            fail_rate[stage] = fail_user / total_user
-            total_user -= fail_user
+    answer = []
+    counter = Counter(stages)
+    reached = 0
+    failure_rate = {}
+    for i in range(N+1, 0, -1):
+        trying = 0
+        
+        if i == N+1:
+            if i in counter.keys():
+                reached += counter[i]
+            continue
         else:
-            fail_rate[stage] = 0
+            if i in counter.keys():
+                reached += counter[i]
+                trying += counter[i]
+        
+        if reached != 0:
+            rate = trying / reached
+        else:
+            rate = 0
 
-    return sorted(fail_rate, key=lambda x : fail_rate[x], reverse=True)
+        if rate in failure_rate.keys():
+            failure_rate[rate].append(i)
+            failure_rate[rate].sort()
+        else:
+            failure_rate[rate] = [i]
+        # print(i, trying, reached)
+
+    # print(failure_rate)
+
+    failure_rate = Counter(failure_rate)
+    failure_rate = sorted(failure_rate.items(), reverse=True)
+
+    for i, key in enumerate(failure_rate):
+        answer += key[1]
+
+    return answer
+
+# N = int(input())
+# stages = list(map(int, input().split(",")))
+# print(solution(N, stages))
