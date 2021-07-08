@@ -47,21 +47,21 @@ int solution(string dr)
         }
         i++;
  
-        if (dr[i + 1] == '*' || dr[i + 1] == '#'){
+        if (dr[i + 1] == '*' || dr[i + 1] == '#'){ // 중첩되는 경우를 계산
             if (dr[i + 1] == '*'){
                 if (s.size() == 1){
                     temp = s.top();
                     s.pop();
                     s.push(temp * 2);
                 }
-                else{
+                else{ // push 순서 주의
                     temp2 = s.top();
                     s.pop();
                     temp = s.top();
                     s.pop();
                     temp *= 2;
-                    s.push(temp);
                     temp2 *= 2;
+                    s.push(temp);
                     s.push(temp2);
                 }
             }
