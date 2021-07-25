@@ -24,10 +24,8 @@ def check(x, y, this_place):
             if (0 <= nx <= 4) and (0 <= ny <= 4):
                 if visited[nx][ny] == 0:
                     if this_place[nx][ny] == 'P':
-                        print("------p");
                         return 0
                     elif this_place[nx][ny] == 'O':
-                        print("------o");
                         tmp1.append([nx, ny])
                         tmp2.append(_len+1)
     return 1
