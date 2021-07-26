@@ -1,52 +1,49 @@
-dx = [-1, 0, 1, 0]
-dy = [0, -1, 0, 1]
-
-def check(x, y, this_place):
+dx = [1, -1, 0, 0]
+dy = [0, 0, 1, -1]
+    
+def BST(x, y, room):
     visited = [[0 for _ in range(5)] for _ in range(5)]
-    _len = 0
+    man_len = 0
     tmp1 = [[x, y]]
     tmp2 = [0]
+    
     while len(tmp1) > 0:
         x = tmp1[0][0]
         y = tmp1[0][1]
         tmp1.remove(tmp1[0])
         visited[x][y] = 1
-        _len = tmp2[0]
-        tmp2.remove(_len)
+        man_len = tmp2[0]
+        tmp2.remove(tmp2[0])
         
-        if _len == 2:
+        if man_len == 2: # 맨해튼 거리 2 초과이므로 더 이상 진행할 필요 없음
             return 1
-
-        for d in range(4):
-            nx = x + dx[d]
-            ny = y + dy[d]
-            print(nx, ny)
-            if (0 <= nx <= 4) and (0 <= ny <= 4):
-                if visited[nx][ny] == 0:
-                    if this_place[nx][ny] == 'P':
-                        return 0
-                    elif this_place[nx][ny] == 'O':
-                        tmp1.append([nx, ny])
-                        tmp2.append(_len+1)
-    return 1
         
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
+            if 0 <= nx < 5 and 0 <= ny < 5:
+                if visited[nx][ny] == 0:
+                    if room[nx][ny] == 'P':
+                        return 0
+                    elif room[nx][ny] == 'O':
+                        tmp1.append([nx, ny])
+                        tmp2.append(man_len + 1)
+    return 1
+
 def solution(places):
     answer = []
-    
-    for i in range(5):
-        this_place = places[i]
-        flag = 0
-        for a in range(5):
-            for b in range(5):
-                if this_place[a][b] == 'P':
-                    if check(a, b, this_place) == 0: 
-                        flag = 1 
+    for room in places:
+        stop = False
+        for x in range(5):
+            for y in range(5):
+                if room[x][y] == 'P':
+                    if BST(x, y, room) == 0:
+                        stop = True
                         break
-            if flag == 1:  
+            if stop == True:
                 break
-        if flag == 1: 
+        if stop == True:
             answer.append(0)
-        else: 
+        else:
             answer.append(1)
-                    
     return answer
