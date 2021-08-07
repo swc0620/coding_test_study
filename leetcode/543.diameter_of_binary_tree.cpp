@@ -27,6 +27,6 @@ private:
         int r = depth(root -> right, diameter);
         diameter = max(diameter, l + r);
         
-        return max(l, r) + 1;
+        return max(l, r) + 1; 
     }
 };
