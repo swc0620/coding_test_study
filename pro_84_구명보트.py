@@ -10,6 +10,6 @@ def solution(people, limit):
         heavy += 1
     return answer
 
-people = list(map(int, input().split()))
-limit = int(input())
-print(solution(people, limit))
+# people = list(map(int, input().split()))
+# limit = int(input())
+# print(solution(people, limit))
