@@ -29,6 +29,5 @@ class Solution
 			}
 		}
 		return (int)Math.pow(max, 2);
-	
     }
 }
