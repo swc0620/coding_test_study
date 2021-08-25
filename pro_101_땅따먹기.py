@@ -6,7 +6,7 @@ def solution(land):
             land[i][j] += max(temp)
     return max(land[-1])
 
-lands = []
-for _ in range(3):
-    lands.append(list(map(int, input().split())))
-print(solution(lands))
+# lands = []
+# for _ in range(3):
+#     lands.append(list(map(int, input().split())))
+# print(solution(lands))
