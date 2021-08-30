@@ -1,10 +1,10 @@
+import java.util.*;
 public class Solution {
   public static void main(String[] args) {
 		String s = "1 2 3 4";
 		String s2 = "-1 -2 -3 -4";
 		String s3 = "-1 -1";
-		
-		System.out.println(solution(s));
+		solution(s);
 	}
 	public static String solution(String s) {
 		String[] arr = s.split(" ");
