@@ -16,3 +16,11 @@ class Solution {
         return merged;
     }
 }
+class Interval{
+    int start;
+    int end;
+    Interval(int a,int b){
+        this.start = a;
+        this.end= b;
+    }
+}
