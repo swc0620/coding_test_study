@@ -1,0 +1,6 @@
+N = int(input())
+nums = list(map(int, input().split()))
+nums = list(set(nums))
+nums.sort()
+nums = list(map(str, nums))
+print(" ".join(nums))
