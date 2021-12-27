@@ -22,7 +22,7 @@ for _ in range(N):
         else:
             print(1)
     elif cmd[0] == 'front':
-        if queue:8
+        if queue:
             print(queue[0])
         else:
             print(-1)
